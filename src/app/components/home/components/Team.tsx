@@ -16,7 +16,7 @@ import {
 
 export default function Team() {
   return (
-    <div className="w-full h-full bg-slate-100 py-24  overflow-hidden">
+    <div id="team" className="w-full h-full bg-slate-100 py-24  overflow-hidden">
       <div className="space-y-5 mb-14">
         <h5 className="font-semibold text-amber-500 text-center">
           Professional Team

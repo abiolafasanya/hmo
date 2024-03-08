@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <div className="bg-cover w-full bg-hero-bg bg-blend-saturation">
+    <div id="home" className="bg-cover w-full bg-hero-bg bg-blend-saturation">
       <section className="w-full bg-opacity-80 backdrop-blur-sm bg-emerald-700 text-emerald-50 bg-blend-overlay">
         <Menu />
         <article className="px-5 md:px-0 flex max-w-6xl mx-auto h-screen items-center justify-center">

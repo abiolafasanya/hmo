@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 
 export default function OurServices() {
   return (
-    <div className="w-full h-full py-14 text-emerald-500">
+    <div id="services" className="w-full h-full py-14 text-emerald-500">
       <div className="max-w-6xl mx-auto flex items-center justify-center flex-col gap-5">
         <h5 className="text-amber-500 font-semibold">Our Services</h5>
         <motion.h3

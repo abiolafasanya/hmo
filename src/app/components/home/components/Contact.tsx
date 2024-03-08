@@ -28,7 +28,7 @@ import { toast } from "sonner";
 export default function Contact() {
   const { form, onSubmit } = useContactForm();
   return (
-    <div className="w-full h-full">
+    <div id="contact" className="w-full h-full">
       <section className="flex">
         <motion.article
           initial={{ opacity: 0 }}

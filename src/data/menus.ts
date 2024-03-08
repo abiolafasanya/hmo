@@ -5,19 +5,19 @@ export default {
     {
       id: 1,
       name: "home",
-      url: "/",
+      url: "#home",
       subMenu: [],
     },
     {
       id: 2,
       name: "About",
-      url: "/",
+      url: "#about",
       subMenu: [],
     },
     {
       id: 3,
       name: "Service",
-      url: "/",
+      url: "#services",
       subMenu: [],
     },
     {
@@ -35,18 +35,18 @@ export default {
     {
       id: 6,
       name: "Contact",
-      url: "/",
+      url: "#contact",
       subMenu: [],
     },
   ],
 
   footerMenus: {
     about: [
-      { id: 1, name: "Services", url: "#" },
+      { id: 1, name: "Services", url: "#services" },
       { id: 2, name: "Pricing", url: "#" },
       { id: 3, name: "Blog", url: "#" },
-      { id: 4, name: "About Us", url: "#" },
-      { id: 5, name: "Contact Us", url: "#" },
+      { id: 4, name: "About Us", url: "#about" },
+      { id: 5, name: "Contact Us", url: "#contact" },
     ],
     services: [
       { id: 1, name: "Couple Therapy", url: "#" },
