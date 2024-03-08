@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -51,11 +51,7 @@ export default function Contact() {
             <p>Molestiae non recusandae itaque earum rerum sarien.</p>
           </div>
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              method="post"
-              className="space-y-5"
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
               <div className="flex flex-col md:flex-row justify-between gap-5">
                 <FormField
                   name="name"
@@ -64,9 +60,11 @@ export default function Contact() {
                     <FormItem className="w-full">
                       <FormControl>
                         <Input
+                          type="text"
                           {...field}
-                          className={styles.input}
                           placeholder="Name"
+                          className={styles.input}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -103,7 +101,7 @@ export default function Contact() {
                       >
                         <FormControl>
                           <SelectTrigger className="h-14">
-                            <SelectValue placeholder="Choose Your Depatment" />
+                            <SelectValue placeholder="Choose Depatment" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -133,7 +131,7 @@ export default function Contact() {
                       >
                         <FormControl>
                           <SelectTrigger className="h-14">
-                            <SelectValue placeholder="Choose Your Depatment" />
+                            <SelectValue placeholder="Choose Doctor" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -162,8 +160,10 @@ export default function Contact() {
                       <FormControl>
                         <Input
                           type="date"
-                          {...field}
+                          required
                           className={styles.input}
+                          placeholder="Appointment Date"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -180,8 +180,8 @@ export default function Contact() {
                           type="tel"
                           prefix="+234"
                           placeholder="+2348103209416"
-                          {...field}
                           className={styles.input}
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -212,21 +212,31 @@ function useContactForm() {
   const formSchema = z.object({
     name: z.string(),
     email: z.string().email(),
-    doctor: z.string(),
-    date: z.string().transform((data) => new Date(data).toLocaleDateString()),
-    department: z.string(),
+    doctor: z.string().min(1, "select a doctor"),
+    date: z
+      .string()
+      .min(1)
+      .transform((data) => new Date(data).toLocaleDateString()),
+    department: z.string().min(1, "select a department"),
     phone: z.string(),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      date: "",
+      department: "",
+      doctor: "",
+      email: "",
+      name: "",
+      phone: "",
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
-    form.reset();
     toast("Appointment Booked", {
       description:
         "Your appointment has been received, please check your email to see your appointment date",
@@ -235,7 +245,7 @@ function useContactForm() {
       cancel: { label: "Close" },
       onAutoClose: (toast) => {},
     });
-    setTimeout(() => {}, 1000);
+    form.reset();
   }
 
   return {

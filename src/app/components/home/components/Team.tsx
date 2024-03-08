@@ -16,7 +16,10 @@ import {
 
 export default function Team() {
   return (
-    <div id="team" className="w-full h-full bg-slate-100 py-24  overflow-hidden">
+    <div
+      id="team"
+      className="w-full h-full bg-slate-100 py-24  overflow-hidden"
+    >
       <div className="space-y-5 mb-14">
         <h5 className="font-semibold text-amber-500 text-center">
           Professional Team
@@ -40,10 +43,10 @@ export default function Team() {
                   <Card key={team.id} className="border-none shadow relative">
                     <CardContent className="p-0 pb-5">
                       <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
+                        initial={{ y: 50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{
-                          duration: 2,
+                          duration: 1,
                           delay: idx,
                           staggerChildren: 0.5,
                         }}

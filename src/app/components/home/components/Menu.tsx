@@ -32,7 +32,7 @@ export default function Menu() {
     });
   }
   return (
-    <motion.menu className="max-w-6xl px-5 md:px-0 py-5 mx-auto flex justify-between items-center">
+    <motion.menu className="max-w-6xl px-5 lg:px-0 py-5 mx-auto flex justify-between items-center">
       <div className="flex space-x-2 items-center">
         <Image src={"/heartbeat.png"} alt="heartbeat" width={36} height={36} />
         <h2 className="text-2xl font-mono">HealthUnit</h2>

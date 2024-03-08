@@ -10,7 +10,7 @@ import { homeAnimation } from "@/data/animation";
 export default function AboutUs() {
   const {about} = homeAnimation;
   return (
-    <div id="about" className="bg-amber-50/90 w-full h-full py-24 px-5 md:px-0">
+    <div id="about" className="bg-amber-50/90 w-full h-full py-24 px-5 lg:px-0">
       <div className="w-full max-w-6xl mx-auto h-full">
         <h5 className="text-amber-500 font-semibold">About us</h5>
         <article className="flex w-full py-5 gap-10 items-center justify-between">
