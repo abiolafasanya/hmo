@@ -16,7 +16,7 @@ import {
 
 export default function Team() {
   return (
-    <div className="w-full h-full bg-slate-100 py-24">
+    <div className="w-full h-full bg-slate-100 py-24  overflow-hidden">
       <div className="space-y-5 mb-14">
         <h5 className="font-semibold text-amber-500 text-center">
           Professional Team
@@ -35,10 +35,10 @@ export default function Team() {
               {abouts.teams.map((team, idx) => (
                 <CarouselItem
                   key={idx}
-                  className="pl-1 md:basis-1/2 lg:basis-1/3"
+                  className="p-5 md:basis-1/2 lg:basis-1/3"
                 >
-                  <Card key={team.id} className="border-none shadow">
-                    <CardContent className="p-3">
+                  <Card key={team.id} className="border-none shadow relative">
+                    <CardContent className="p-0 pb-5">
                       <motion.div
                         initial={{ x: -50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -54,7 +54,7 @@ export default function Team() {
                           alt=""
                           width={300}
                           height={300}
-                          className="w-full mb-5 max-h-[300px] object-cover rounded object-top"
+                          className="w-full mb-5 max-h-[300px] rounded-t object-cover object-top"
                         />
                         <h4 className="font-semibold text-primary">
                           {team.name}

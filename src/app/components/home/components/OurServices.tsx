@@ -29,26 +29,31 @@ export default function OurServices() {
         </motion.h3>
 
         <motion.article
-          className="w-full"
+          className="w-full h-full max-w-6xl mx-auto overflow-hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, when: "beforChildren" }}
         >
-          <Carousel className="w-full max-w-6xl mx-auto">
-            <CarouselContent className="-ml-1 gap-5">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-1 gap-5 p-5">
               {services.map((service, idx) => (
                 <CarouselItem
                   key={idx}
                   className="pl-1 md:basis-1/2 lg:basis-1/3"
                 >
                   <Card key={service.id} className="border-none shadow">
-                    <motion.div initial={{x: -10, opacity: 0}} whileInView={{ x:0, opacity: 1}} transition={{duration: idx, staggerChildren: 0.2}} className="p-2.5 flex flex-col space-y-3 pb-3 items-center justify-center">
+                    <motion.div
+                      initial={{ x: -10, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: idx, staggerChildren: 0.2 }}
+                      className="flex flex-col space-y-3 pb-3 items-center justify-center"
+                    >
                       <Image
                         src={service.photo}
                         alt={service.name}
                         width={300}
                         height={300}
-                        className="w-full h-[200px] rounded object-cover object-center"
+                        className="w-full h-[200px] rounded-t object-cover object-center"
                       />
                       <div className="text-center py-4 space-y-2">
                         <h3 className="text-xl font-semibold">
