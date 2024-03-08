@@ -8,8 +8,8 @@ export default function Hero() {
     <div className="bg-cover w-full bg-hero-bg bg-blend-saturation">
       <section className="w-full bg-opacity-80 backdrop-blur-sm bg-emerald-700 text-emerald-50 bg-blend-overlay">
         <Menu />
-        <article className="flex max-w-6xl mx-auto h-screen items-center justify-center">
-          <div className="w-1/2 space-y-4">
+        <article className="px-5 md:px-0 flex max-w-6xl mx-auto h-screen items-center justify-center">
+          <div className="w-full md:w-1/2 space-y-4">
             <h4 className="text-sm text-white">Welcome To The HealthUnit</h4>
             <h2 className="text-4xl font-semibold">
               We Always Provide Best Health Care Services For You.
@@ -27,7 +27,7 @@ export default function Hero() {
               </Button>
             </div>
           </div>
-          <div className="w-1/2 flex items-center justify-between">
+          <div className="hidden md:w-1/2 md:flex items-center justify-between">
             <picture className="rounded-full w-[350px] h-[350px] overflow-hidden ml-auto">
               <Image
                 src={"/work-time.jpg"}

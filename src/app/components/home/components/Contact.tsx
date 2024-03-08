@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import contact from "@/data/contact";
+import { motion } from "framer-motion";
 
 import {
   Select,
@@ -29,7 +30,12 @@ export default function Contact() {
   return (
     <div className="w-full h-full">
       <section className="flex">
-        <article className="w-1/2">
+        <motion.article
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="hidden md:block w-1/2"
+        >
           <Image
             src={"/medic1.jpg"}
             alt="contact us image"
@@ -37,8 +43,8 @@ export default function Contact() {
             height={500}
             className="w-full h-full"
           />
-        </article>
-        <article className="w-1/2 py-20 px-12">
+        </motion.article>
+        <article className="w-full md:w-1/2 py-20 px-5 md:px-12">
           <div className="space-y-4 mb-4">
             <h5 className="font-semibold text-amber-500">Book With Us Now</h5>
             <h3 className="text-2xl">Get an Appointment</h3>
@@ -50,7 +56,7 @@ export default function Contact() {
               method="post"
               className="space-y-5"
             >
-              <div className="flex justify-between gap-5">
+              <div className="flex flex-col md:flex-row justify-between gap-5">
                 <FormField
                   name="name"
                   control={form.control}
@@ -85,7 +91,7 @@ export default function Contact() {
                   )}
                 />
               </div>
-              <div className="flex justify-between gap-5">
+              <div className="flex flex-col md:flex-row justify-between gap-5">
                 <FormField
                   name="department"
                   control={form.control}
@@ -147,7 +153,7 @@ export default function Contact() {
                   )}
                 />
               </div>
-              <div className="flex justify-between gap-5">
+              <div className="flex flex-col md:flex-row justify-between gap-5">
                 <FormField
                   name="date"
                   control={form.control}
@@ -229,8 +235,7 @@ function useContactForm() {
       cancel: { label: "Close" },
       onAutoClose: (toast) => {},
     });
-    setTimeout(() => {
-    }, 1000);
+    setTimeout(() => {}, 1000);
   }
 
   return {

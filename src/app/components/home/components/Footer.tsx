@@ -15,7 +15,7 @@ import React, { Fragment } from "react";
 export default function Footer() {
   return (
     <footer className="w-full h-full bg-emerald-600 text-emerald-50">
-      <section className="max-w-6xl mx-auto w-full flex justify-between py-20">
+      <section className="max-w-6xl mx-auto px-5 md:px-0 gap-5 md:gap-0 w-full flex flex-wrap justify-between py-20">
         <article>
           <div className="flex space-x-2 items-center">
             <Image
